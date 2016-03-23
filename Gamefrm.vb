@@ -1,6 +1,6 @@
 Public Class Gamefrm
   Public map(,) as integer
-  Public Function move(byval direction as string,byval map(,) as integer)
+  Public Function move(byval direction as string
     if direction="down" then
     	for i=2 to 0 step -1
     		for j=3 to 0 step -1
@@ -60,4 +60,16 @@ Public Class Gamefrm
     	
     end if
   End Function
+  private sub gamefrm_keydown(byval sender as object, byval e as keyeventargs) handles gamefrm.keydown
+  	select case e.keycode
+  		case keys.up:
+  			move("up")
+  		case keys.down:
+  			move("down")
+  		case keys.left:
+  			move("left")
+  		case keys.right:
+  			move("right")
+  	end select
+  end sub 
 End Class
